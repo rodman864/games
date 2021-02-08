@@ -16,6 +16,7 @@ public class MyGame
 {
     public User CurrentUser { get; set; }
    
+   
 
     private Action theAttackAction;
 
@@ -78,6 +79,7 @@ public class MyGame
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("");
         Console.WriteLine("You have been kicked");
+        
     }
     
     public void HandleAttack()
@@ -96,10 +98,44 @@ public class MyGame
         return false;
 
     }
+    public bool DidEnemyWin(User user)
+    {
+        if (user.IsGamer)
+            return true;
+
+        if (user.ClanInfo.ClanName !=
+            CurrentUser.ClanInfo.ClanName)
+            return true;
+
+        return false;
+    }
+    public bool DidEnemyPunch(User user)
+    {
+        if (user.DidPunch)
+            return true;
+
+        if (user.ClanInfo.ClanName != CurrentUser.ClanInfo.ClanName)
+            return true;
+
+       return false;
+    }
+    public bool KickedEnemy(User user)
+    {
+        if (user.DidKick)
+            return false;
+
+        if (user.ClanInfo.ClanName != CurrentUser.ClanInfo.ClanName)
+            return false;
+
+        return true;
+    }
+
 }
 public class User
 {
     public string UserName { get; set; }
+    public bool DidPunch { get; set; }
+    public bool DidKick { get; set; }
     public bool IsGamer { get; set; }
     public Clan ClanInfo { get; set; }
 }

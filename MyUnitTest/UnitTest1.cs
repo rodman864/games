@@ -36,6 +36,7 @@ namespace MyUnitTest
             //Assert
             Assert.IsTrue(canItBeAttacked);
         }
+        [TestMethod]
         public void DidEnemyWin_IfEnemyWin_ReturnFalse()
         {
             //Arrange
@@ -68,6 +69,7 @@ namespace MyUnitTest
 
 
         }
+        [TestMethod]
         public void DidEnemyPunch_IfEnemyPunch_ReturnTrue()
         {
             //Arrange
@@ -100,6 +102,7 @@ namespace MyUnitTest
 
 
         }
+        [TestMethod]
         public void KickedEnemy_IfKick_ReturnFalse()
         {
             //Arrange
